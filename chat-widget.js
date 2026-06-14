@@ -2,7 +2,7 @@
   'use strict';
 
   /* ─── CONFIG — update this URL after you deploy the Worker ─── */
-  var WORKER_URL = 'https://hdl-chat.YOUR_SUBDOMAIN.workers.dev';
+  var WORKER_URL = 'https://hdl-chat.YOUR_CF_ACCOUNT.workers.dev'; // replace YOUR_CF_ACCOUNT with your Cloudflare subdomain
   /* ──────────────────────────────────────────────────────────── */
 
   var GREETING = "Hey! Welcome to Handy Dandy Lawns 🌿 What can I help you with today?";

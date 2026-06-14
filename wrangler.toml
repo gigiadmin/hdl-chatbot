@@ -1,0 +1,7 @@
+name = "hdl-chat"
+main = "chatbot-worker.js"
+compatibility_date = "2024-01-01"
+
+# Secrets are set via Cloudflare dashboard or:
+#   wrangler secret put ANTHROPIC_API_KEY
+#   wrangler secret put ALLOWED_ORIGIN   (optional — restricts CORS to your domain)

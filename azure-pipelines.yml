@@ -1,0 +1,28 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '20.x'
+    displayName: Install Node.js
+
+  - script: npm install -g wrangler
+    displayName: Install Wrangler CLI
+
+  - script: wrangler deploy
+    displayName: Deploy Cloudflare Worker (hdl-chat)
+    env:
+      CLOUDFLARE_API_TOKEN: $(CLOUDFLARE_API_TOKEN)
+      CLOUDFLARE_ACCOUNT_ID: $(CLOUDFLARE_ACCOUNT_ID)
+
+  - script: wrangler pages deploy . --project-name=hdl-chatbot --branch=main
+    displayName: Deploy static site to Cloudflare Pages
+    env:
+      CLOUDFLARE_API_TOKEN: $(CLOUDFLARE_API_TOKEN)
+      CLOUDFLARE_ACCOUNT_ID: $(CLOUDFLARE_ACCOUNT_ID)
